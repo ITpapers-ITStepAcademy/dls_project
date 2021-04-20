@@ -24,7 +24,15 @@
                             <a asp-action="PageEditor" asp-controller="Page"
                                asp-route-pageId="@item.Directory.Id"
                                asp-route-pageType="@PageEnums.PageType.Directory">
-                                --> EditDirectory
+                                EditDirectory
+                            </a>
+                        </small>
+                        |
+                        <small>
+                            <a asp-action="DeleteDirectory" asp-controller="Page"
+                               asp-route-directoryId="@item.Directory.Id"
+                            >
+                                DeleteDirectory
                             </a>
                         </small>
                         |
@@ -41,25 +49,28 @@
                                         @sub.Material.Title
                                     </a>
                                     |
-                                    <small>
-                                        <a asp-action="PageEditor" asp-controller="Page"
-                                           asp-route-pageId="@sub.Material.Id"
-                                           asp-route-directoryId="@item.Directory.Id"
-                                           asp-route-pageType="@PageEnums.PageType.Material">
-                                            --> EditMaterial
-                                        </a>
-                                    </small>
+                                    <a asp-action="PageEditor" asp-controller="Page"
+                                       asp-route-pageId="@sub.Material.Id"
+                                       asp-route-directoryId="@item.Directory.Id"
+                                       asp-route-pageType="@PageEnums.PageType.Material">
+                                        EditMaterial
+                                    </a>
+                                    |
+                                    <a asp-action="DeleteMatrial" asp-controller="Page"
+                                       asp-route-directoryId="@sub.Material.Id">
+                                        DeleteMaterial
+                                    </a>
                                     |
                                 </li>
                             }
-                            <li>
-                                <a asp-action="PageEditor" asp-controller="Page"
-                                   asp-route-pageId="0"
-                                   asp-route-directoryId="@item.Directory.Id"
-                                   asp-route-pageType="@PageEnums.PageType.Material">
-                                    --> CreateMaterial
-                                </a>
-                            </li>
+                    <li>
+                        <a asp-action="PageEditor" asp-controller="Page"
+                           asp-route-pageId="0"
+                           asp-route-directoryId="@item.Directory.Id"
+                           asp-route-pageType="@PageEnums.PageType.Material">
+                            --> CreateMaterial
+                        </a>
+                    </li>
                         }
                     </ul>
                 </li>
